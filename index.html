@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Romantic gradient */
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       overflow: hidden;
       color: #333;
     }
@@ -34,9 +34,9 @@
     }
 
     .decor.top-left { top: 10px; left: 10px; background-image: url('flower1.jpg'); }
-    .decor.bottom-right { bottom: 10px; right: 10px; background-image: url('flower1.jpg');  }
-    .decor.top-right { top: 10px; right: 10px; background-image: url('flower-right.webp');  }
-    .decor.bottom-left { bottom: 10px; left: 10px; background-image: url('flower-right.webp');  }
+    .decor.bottom-right { bottom: 10px; right: 10px; background-image: url('flower1.jpg'); }
+    .decor.top-right { top: 10px; right: 10px; background-image: url('flower-right.webp'); }
+    .decor.bottom-left { bottom: 10px; left: 10px; background-image: url('flower-right.webp'); }
 
     /* ✨ Slideshow Styling */
     .slideshow {
@@ -99,13 +99,28 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* 🎬 Start Button Styling */
+    #startButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 30px;
+      font-size: 18px;
+      color: white;
+      background: #d6336c;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 3;
+      transition: background 0.3s;
+    }
+    #startButton:hover { background: #b02457; }
   </style>
 </head>
 <body>
-
   <div class="container">
-
-    <!-- 🌸 Floral Decorations -->
     <div class="decor top-left"></div>
     <div class="decor bottom-right"></div>
     <div class="decor top-right"></div>
@@ -133,34 +148,25 @@
       <p>We look forward to your presence!</p>
     </div>
 
+    <!-- 🎬 Start Button -->
+    <button id="startButton">Click to view Invitation</button>
   </div>
 
   <script>
-    const images = [
-      "image5.jpg",
-      "image6.jpg",
-      "image7.jpg",
-      "image1.jpg",
-      "image2.jpg",
-      "image3.jpg",
-      "image4.jpg"
-      // Add more image URLs here!
-    ];
-
+    const images = ["image5.jpg", "image6.jpg", "image7.jpg", "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
     const slideImage = document.getElementById('slideImage');
     const slideshow = document.querySelector('.slideshow');
     const invitation = document.getElementById('invitationDetails');
     const bgMusic = document.getElementById("bgMusic");
-
+    const startButton = document.getElementById("startButton");
     let index = 0;
 
     function showNextImage() {
       if (index < images.length) {
         slideImage.src = images[index];
         index++;
-        setTimeout(showNextImage, 2000); // Show each image for 2 seconds
+        setTimeout(showNextImage, 2000);
       } else {
-        // After all images are shown, fade out slideshow and show invitation
         slideshow.style.opacity = 0;
         setTimeout(() => {
           slideshow.style.display = 'none';
@@ -169,12 +175,16 @@
       }
     }
 
-    // Start slideshow and music on page load
-    window.onload = function () {
-      bgMusic.play(); // Start music when the page loads
+    startButton.addEventListener("click", function () {
+      bgMusic.currentTime = 30;
+      bgMusic.play();
+      startButton.style.display = "none";
       showNextImage();
-    };
-  </script>
 
+    setTimeout(() => {
+    bgMusic.pause();
+  }, 29000); 
+    });
+  </script>
 </body>
 </html>
