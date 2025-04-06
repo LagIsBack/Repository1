@@ -23,21 +23,7 @@
       overflow: hidden;
     }
 
-    /* 🌸 Floral Decorations */
-    .decor {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 1;
-    }
-
-    .decor.top-left { top: 10px; left: 10px; background-image: url('flower1.jpg'); }
-    .decor.bottom-right { bottom: 10px; right: 10px; background-image: url('flower1.jpg'); }
-    .decor.top-right { top: 10px; right: 10px; background-image: url('flower-right.webp'); }
-    .decor.bottom-left { bottom: 10px; left: 10px; background-image: url('flower-right.webp'); }
-
+    
     /* ✨ Slideshow Styling */
     .slideshow {
       position: absolute;
@@ -127,7 +113,7 @@
     <div class="decor bottom-left"></div>
 
     <!-- 🎵 Background Music -->
-    <audio id="bgMusic" src="background-music.mp3" loop></audio>
+    <audio id="bgMusic" src="background-music_final.mp3" loop></audio>
 
     <!-- 📸 Slideshow Section -->
     <div class="slideshow">
@@ -135,17 +121,20 @@
     </div>
 
     <!-- 💌 Invitation Details -->
-    <div class="invitation" id="invitationDetails">
-      <img src="parents.jpg" alt="Anniversary Couple" />
+    <div style="background-color:lightblue;" class="invitation" id="invitationDetails">
+      <img src="parents_final.jpg" alt="Anniversary Couple" />
       <h1>You're Invited!</h1>
-      <p>Join us in celebrating the</p>
+      <p>to celebrate the</p>
       <p><strong>25th Wedding Anniversary</strong></p>
-      <p>of my beloved parents</p>
-      <p><strong>Priyadarshini & Sujit Bhattacharyya</strong></p>
-      <p>on <strong>25th May 2025</strong></p>
-      <p>at <strong>Bengal Club</strong></p>
+      <p>of my beloved parents,</p>
+      <p><strong>Priyadarshini & Sujit</strong></p>
+      <p>on <strong>May 25 2025.</strong></p>
+      <p><strong><i>Soham Bhattacharyya</i></strong>; RSVP: <strong>+91 9831482454</strong></p>
+      <p>Venue: <strong>Bengal Club</strong></p>
+      <p><strong>1/1, Russel Street, Park Street Area</strong></p>
+      <p><strong>Kolkata 700071</strong></p>
       <p>Time: <strong>7 PM onwards</strong></p>
-      <p>We look forward to your presence!</p>
+      <p>Look forward to your presence!</p>
     </div>
 
     <!-- 🎬 Start Button -->
@@ -171,6 +160,10 @@
         setTimeout(() => {
           slideshow.style.display = 'none';
           invitation.style.display = 'flex';
+
+          // 🌸 Change background to the wallpaper
+          document.body.style.background = "url('background-style.jpg') no-repeat center center fixed";
+          document.body.style.backgroundSize = "cover";
         }, 1000);
       }
     }
